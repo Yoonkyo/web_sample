@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나도 가고싶다</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700&display=swap" rel="stylesheet">
+    <meta property="og:title" content="Luxun House Party!" />
+    <meta property="og:description" content="feat. SeongJo Kim" />
+    <meta property="og:image" content="luxun.jpg" />
+    <style>
+        * {
+            font-family: 'Gothic A1', sans-serif;
+        }
+
+        .mytitle {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        h1 {
+            font-size: 30px;
+        }
+
+        .btn {
+            width: 300px;
+            height: 40px;
+            border: 2px solid #e8344e;
+            text-align: center;
+            line-height: 40px;
+            text-decoration: none;
+            color: #e8344e;
+            font-weight: bold;
+            border-radius: 150px;
+        }
+
+        .btn:hover {
+            color: white;
+            background-color: #e8344e;
+        }
+
+        .box {
+            width: 1000px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin: 40px auto 0px auto;
+        }
+
+        .map {
+            width: 500px;
+            height: 500px;
+            margin-right: 30px;
+            border-radius: 24px;
+        }
+
+        .story {
+            width: 330px;
+            height: 500px;
+        }
+
+        .img {
+            width: 330px;
+            height: 320px;
+            background-image: url('wedding.jpg');
+            background-position: center;
+            background-size: cover;
+            border-radius: 24px;
+        }
+
+        .story>h2 {
+            color: green;
+            margin: 20px 0px 0px 0px;
+        }
+
+        .story>h3 {
+            color: gray;
+            margin-top: 5px;
+            font-weight: normal;
+            font-size: 16px;
+        }
+
+        .story>p {
+            line-height: 24px;
+        }
+
+        @media screen and (max-width: 640px) {
+            h1 {
+                font-size: 26px;
+            }
+
+            .box {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .map {
+                width: 100%;
+                height: 200px;
+                margin: auto;
+            }
+
+            .story {
+                width: 100%;
+                height: auto;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            .img {
+                width: 100%;
+                height: 330px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mytitle">
+        <h1>파뤼파뤼 Party time at Luxun house</h1>
+        <a class="btn" href="./luxunfuckyou.jpg" target="_blank">호스트의 사진이 궁금하다면? 클릭!</a>
+    </div>
+    <div class="box">
+        <div class="map" id="map"></div>
+        <div class="story">
+            <div class="img"></div>
+            <h2>Luxun house</h2>
+            <h3>서울특별시 서대문구 충현동 227-1</h3>
+            <p>
+                2021년 11월 6일. 김성조의 결혼식이다.
+                <br>
+                그가 결혼식을 핑계로 일반톡 인원을 소집했는데, 장소는 다름 아닌 여훈의 집!
+                <br>
+                과연 8명을 수용할 수 있을 것인가?
+            </p>
+        </div>
+    </div>
+    <script type="text/javascript"
+        src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=14d5217c57cd5c4bc7493f874980bef0"></script>
+    <script>
+            var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+                mapOption = {
+                    center: new kakao.maps.LatLng(37.56228265579251, 126.96504922498009), // 지도의 중심좌표
+                    level: 4 // 지도의 확대 레벨
+                };
+
+            var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+            var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png', // 마커이미지의 주소입니다    
+                imageSize = new kakao.maps.Size(40, 45), // 마커이미지의 크기입니다
+                imageOption = { offset: new kakao.maps.Point(20, 45) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
+            // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+            var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+                markerPosition = new kakao.maps.LatLng(37.56228265579251, 126.96504922498009); // 마커가 표시될 위치입니다
+
+            // 마커를 생성합니다
+            var marker = new kakao.maps.Marker({
+                position: markerPosition,
+                image: markerImage // 마커이미지 설정 
+            });
+
+            marker.setMap(map);
+    </script>
+    
+</body>
+
+</html>
