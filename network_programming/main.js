@@ -22,10 +22,7 @@ function init() {
         let loc = cadet_num.findIndex(v => v == num);
         let score = cadet_score[loc]
         let who = cadet_name[loc]
-        if (nameInput.value == "이미정"){
-            alert(`사랑해요 라인 여신♥‿♥`);
-        }
-        else if(score == null){
+        if(score == null){
             alert(`교번을 다시 입력하세요!`);
         }
         else{
