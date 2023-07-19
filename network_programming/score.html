@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>2023-1 Network Programming</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script>
+			let cadet_num = [7513200,7513216,7513252,7513254,7513266,7513273,7513343,7513391,7513400,7513407,7513410,7513414];
+			let cadet_score = [60,91,75,83,90,67,91,83,88,70,65,70];
+			let cadet_name = ['고민우', '김민우', '남민혁', '남호진', '박도근', '박성원', '이창민', '태건민', '허훈', '황서윤', '황지현', '바오중']
+			function init() {
+				let signupForm = document.querySelector('form');
+
+				signupForm.addEventListener('submit', event => {
+				event.preventDefault();
+					let nameInput = event.target['name'];
+					let num = parseInt(nameInput.value);
+					let loc = cadet_num.findIndex(v => v == num);
+					let score = cadet_score[loc]
+					let who = cadet_name[loc]
+					if(score == null){
+						alert(`교번을 다시 입력하세요!`);
+					}
+					else{
+						alert(`${who} 생도의 기말고사 점수는 ${score}점 입니다.`);
+					}
+				});
+			}
+		</script>
+
+	</head>
+	<body class="is-preload" onload="init()">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
+
+					<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>2023-1 Network Programming</strong>  &nbsp&nbsp&nbsp&nbsp by Yoonkyo Jung</a>
+						<ul class="icons">
+							<li><a href="" class="icon brands fa-instagram" title="Page not found :("><span class="label">Instagram</span></a></li>
+							<li><a href="https://github.com/Yoonkyo" class="icon brands fa-github" title="Visit my github profile!"><span class="label">Github</span></a></li>
+						</ul>
+					</header>
+
+					<!-- Banner -->
+					<section id="banner">
+						<div class="content">
+							<header>
+								<h2 style="font-family:맑은고딕" >23-1학기 기말고사 성적 확인 프로그램</h1>
+								<h3 style="font-family:맑은고딕">* 교번을 입력하면 점수 확인이 가능합니다 
+									<br>* 답안 확인이 필요하면 이번 주 중으로 교수연구실(334호)에 방문해주세요
+								</h3>
+							</header>
+							<form name="fo" method="get">
+								<label>교번 : <input type="text" size="10" id="name" value="">
+								</label>
+								<button style="font-family:맑은고딕" type="submit">완료</button>
+						</div>
+					</section>
+
+
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
